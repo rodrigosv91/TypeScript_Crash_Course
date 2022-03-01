@@ -1,6 +1,5 @@
 "use strict";
 let id_user = 5;
-console.log('ID:', id_user);
 let id = 5;
 let company = 'My IT company';
 let isPublished = true;
@@ -54,3 +53,53 @@ function addNum(x, y) {
 function log(message) {
     console.log(message);
 }
+log(123);
+const user1 = {
+    id: 1,
+    name: 'Gil',
+};
+const add = (x, y) => x + y;
+const sub = (x, y) => x - y;
+class Person {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    register() {
+        return `${this.name} is now registered`;
+    }
+}
+const brad = new Person(1, 'Brad');
+console.log(brad.register());
+class Cat {
+    constructor(name) {
+        this.name = name;
+    }
+    makeSound() {
+        return `${this.name} says: Meow!`;
+    }
+}
+const cat = new Cat("Kitty");
+console.log(cat.makeSound());
+class AbstractPerson {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    display() {
+        console.log(this.name);
+    }
+}
+class Employee extends AbstractPerson {
+    constructor(id, name, code) {
+        super(id, name);
+        this.empCode = code;
+    }
+    returnOther() {
+        return new Employee(7, "Loki", 1);
+    }
+}
+const emp = new Employee(13, '', 2);
+const emp2 = emp.returnOther();
+console.log(emp);
+console.log(emp2);
