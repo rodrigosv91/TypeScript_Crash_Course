@@ -103,3 +103,11 @@ const emp = new Employee(13, '', 2);
 const emp2 = emp.returnOther();
 console.log(emp);
 console.log(emp2);
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(['Pink', 'Red', 'Blue']);
+numArray.push(5);
+strArray.push('Green');
+console.log(strArray);

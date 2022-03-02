@@ -143,7 +143,7 @@ class Cat implements AnimalInterface{       //all properties and methods must be
 const cat = new Cat("Kitty")
 console.log(cat.makeSound())
 
-//Extending Classes (Subclasses) // Abstract
+// Classes  Abstratas
 abstract class AbstractPerson {
     id: number
     name: string;
@@ -157,6 +157,7 @@ abstract class AbstractPerson {
     abstract returnOther(): AbstractPerson
 }
 
+// Extending / Subclasses
 class Employee extends AbstractPerson { 
     empCode: number;
     constructor(id: number,name: string, code: number) { 
@@ -167,9 +168,19 @@ class Employee extends AbstractPerson {
         return new Employee(7, "Loki", 1);                  //Employee is a kind of AbstractPerson
     }
 }
-
 const emp = new Employee(13, '', 2)
 const emp2 = emp.returnOther()
-
 console.log(emp)
 console.log(emp2)
+
+//Generics               
+function getArray<T>(items: T[]): T[]{     // T for type  // "placeholder of type" // turn generic array into specified type array
+    return new Array().concat(items)
+}
+let numArray = getArray<number>([1,2,3,4])
+let strArray = getArray<string>(['Pink','Red','Blue'])  //if not specified, compiler may use type inference to set the value of T
+
+numArray.push(5) 
+strArray.push('Green')      //strArray.push(1)        // allowed in js, compile error in typescript
+
+console.log(strArray)
